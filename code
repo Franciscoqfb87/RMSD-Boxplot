@@ -1,3 +1,38 @@
-code
-README
-License
+# Created on Thu Feb  6 21:04:40 2025
+
+# @author: mi_ya
+"""
+
+# Import necessary libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# File path (adjust the path according to the file location on your PC)
+file_path = ("G:\My Drive\\Articles\\2025-Mitzi-Hannya\\MD\\datosMD.csv")
+
+# Load the data
+df = pd.read_csv(file_path)
+
+# Set up the style for the plots
+sns.set_theme(style="whitegrid")  # Clean and professional style
+plt.figure(figsize=(8, 6), dpi=600)  # Increase resolution for publications
+
+# Create the boxplot with Seaborn
+ax = sns.boxplot(data=df, palette="Set3")
+
+# Rotate X-axis labels for better visibility
+ax.set_xticklabels(ax.get_xticklabels(), rotation=90, ha="center", fontsize=18, fontweight="bold")
+
+# Adjust labels and title
+plt.ylabel("Average RMSD (Å)", fontsize=17, fontweight="bold")
+
+# Adjust margins
+plt.tight_layout()
+
+# Save the plot in high quality for publications
+plt.savefig("datosRMSD-PTP1Bhannyamitzi.png", dpi=600, bbox_inches="tight")
+
+# Show the plot
+plt.show()
+
